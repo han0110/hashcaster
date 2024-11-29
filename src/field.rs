@@ -3,9 +3,10 @@ use crate::{backend::autodetect::mul_128, precompute::{cobasis_frobenius_table::
 use bytemuck::{AnyBitPattern, NoUninit, Pod, Zeroable};
 use num_traits::{One, Zero};
 use rand::Rng;
+use serde::{Deserialize, Serialize};
 
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Pod, Zeroable)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Pod, Zeroable, Serialize, Deserialize)]
 pub struct F128 {
     pub(crate) raw: u128,
 }

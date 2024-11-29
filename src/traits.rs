@@ -2,10 +2,11 @@ use std::{iter::once, mem::{MaybeUninit}};
 use num_traits::Zero;
 use bytemuck;
 use rayon::iter::IntoParallelIterator;
+use serde::{Deserialize, Serialize};
 
 use crate::{field::F128, ptr_utils::UninitArr};
 
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct CompressedPoly {
     pub compressed_coeffs: Vec<F128>,
 }
